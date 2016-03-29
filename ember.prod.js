@@ -30841,7 +30841,13 @@ enifed('ember-runtime/system/each_proxy', ['exports', 'ember-metal/core', 'ember
 
         guid = utils.guidFor(item);
         indices = objects[guid];
-        indices[array.indexOf.call(indices, loc)] = null;
+        //LV
+        try{
+          indices[array.indexOf.call(indices, loc)] = null;
+        }catch(e){
+          log("removeObserverForContentKey LV ember.debug","red",array,indices,loc,content, keyName, proxy, idx,item,guid);
+          throw(e);
+        }
       }
     }
   }

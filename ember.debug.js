@@ -15326,6 +15326,10 @@ enifed('ember-metal/property_set', ['exports', 'ember-metal/core', 'ember-metal/
     }
 
     Ember['default'].assert("You need to provide an object and key to `set`.", !!obj && keyName !== undefined);
+    //LV
+    if (obj.isDestroyed) {
+      log("calling set "+keyName+" on destroyed object","red",obj);
+    }
     Ember['default'].assert('calling set on destroyed object', !obj.isDestroyed);
 
     if (desc) {

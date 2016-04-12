@@ -8068,6 +8068,10 @@ enifed('ember-metal-views/renderer', ['exports', 'dom-helper', 'ember-metal/envi
 
     for (i = total - 1; i >= 0; i--) {
       if (willInsert) {
+        //LV
+        if (!views[i]) {
+          log("views i is null LV","red",this,view,_parentView,element,views);
+        }
         views[i]._elementInserted = true;
         this.didInsertElement(views[i]);
       }

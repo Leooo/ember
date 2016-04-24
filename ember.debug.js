@@ -887,6 +887,7 @@ enifed("backburner/queue",
             method.call(target);
           }
         } catch(error) {
+          log("invokeWithOnError LV","red",target, method, args);
           onError(error, errorRecordedForStack);
         }
       },
